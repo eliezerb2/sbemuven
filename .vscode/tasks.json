@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Ubuntu VM (Remote ISO)",
+            "type": "shell",
+            "command": "powershell.exe -ExecutionPolicy Bypass -File \"${workspaceFolder}/.vscode/build-vm.ps1\" -Debug",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Ubuntu VM (Local ISO)",
+            "type": "shell",
+            "command": "powershell.exe -ExecutionPolicy Bypass -File \"${workspaceFolder}/.vscode/build-vm.ps1\" -IsoPath \"${input:localIsoPath}\" -Debug",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "localIsoPath",
+            "type": "promptString",
+            "description": "Path to local Ubuntu ISO file",
+            "default": "C:/path/to/ubuntu-22.04.4-live-server-amd64.iso"
+        }
+    ]
+}
