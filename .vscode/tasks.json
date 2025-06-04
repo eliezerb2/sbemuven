@@ -2,6 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Download Ubuntu ISO",
+            "type": "shell",
+            "command": "powershell.exe -ExecutionPolicy Bypass -File \"${workspaceFolder}/.vscode/download.ps1\"",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Build Ubuntu VM (Remote ISO)",
             "type": "shell",
             "command": "powershell.exe -ExecutionPolicy Bypass -File \"${workspaceFolder}/.vscode/build-vm.ps1\" -Debug",
